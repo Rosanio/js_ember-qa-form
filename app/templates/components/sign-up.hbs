@@ -1,0 +1,15 @@
+{{#if signingUp}}
+  <form>
+    <div class="form-group">
+      <label for="name">Username</label>
+      {{input value=name id="name"}}
+    </div>
+    <div class="form-group">
+      <label for="pic">Profile Picture URL</label>
+      {{input value=pic id="pic"}}
+    </div>
+    <button {{action 'signUpUser'}} class="btn btn-primary">Go!</button>
+  </form>
+{{else}}
+  <button {{action 'showSignUpForm'}} class="btn btn-primary">Sign Up</button>
+{{/if}}
