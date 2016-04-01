@@ -1,1 +1,7 @@
-{{yield}}
+{{#if loggingIn}}
+  {{#each users as |user|}}
+    {{user.name}}
+  {{/each}}
+{{else}}
+  <button {{action 'showLogInForm'}} class="btn btn-primary">Log In</button>
+{{/if}}
