@@ -14,6 +14,15 @@ export default Ember.Route.extend({
         return question.save();
       });
       this.refresh();
+    },
+    editQuestion(question, params) {
+      Object.keys(params).forEach(function(key) {
+        if(params[key]!==undefined && params[key].length>0) {
+          question.set(key, params[key]);
+        }
+      });
+      question.save();
+      this.refresh();
     }
   }
 });
