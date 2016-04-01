@@ -23,6 +23,12 @@ export default Ember.Route.extend({
       });
       question.save();
       this.refresh();
+    },
+    destroyQuestion(question) {
+      if(confirm("Are you sure?")) {
+        question.destroyRecord();
+        this.transitionTo('index');
+      }
     }
   }
 });
