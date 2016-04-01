@@ -10,6 +10,18 @@ export default Ember.Component.extend({
     },
     destroyQuestion(params) {
       this.sendAction('destroyQuestion', params);
+    },
+    upvote(question) {
+      var params = {
+        upvotes: question.get('upvotes')+1
+      };
+      this.sendAction('upvote', question, params);
+    },
+    downvote(question) {
+      var params = {
+        downvotes: question.get('downvotes')+1
+      };
+      this.sendAction('downvote', question, params);
     }
   }
 });

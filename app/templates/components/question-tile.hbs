@@ -12,6 +12,6 @@
   <button {{action "destroyQuestion" question}} class='btn btn-danger'>Delete question</button>
 </div>
 <div class="questionVotes">
-  <span {{action 'upvote'}} class="glyphicon glyphicon-thumbs-up"></span><span class="votes">      {{question.upvotes}}</span>
-  <span {{action 'downvote'}} class="glyphicon glyphicon-thumbs-down"></span><span class="votes"> {{question.downvotes}}</span>
+  <span {{action 'upvote' question}} class="glyphicon glyphicon-thumbs-up"></span><span class="votes">      {{question.upvotes}}</span>
+  <span {{action 'downvote' question}} class="glyphicon glyphicon-thumbs-down"></span><span class="votes"> {{question.downvotes}}</span>
 </div>
