@@ -14,10 +14,10 @@ export default Ember.Component.extend({
             question: this.get('question'),
             author: this.get('author')
           };
-          this.set('answeringQuestion', false);
           this.sendAction('answerQuestion', params);
         }
       }
+      this.set('answeringQuestion', false);
     }
   }
 });

@@ -1,19 +1,21 @@
-{{#if editingQuestion}}
-  <form>
-    <div class="form-group">
-      <label for="content">Question</label>
-      {{input value=content id="content" value=question.content}}
-    </div>
-    <div class="form-group">
-      <label for="author">Author</label>
-      {{input value=author id="author" value=question.author}}
-    </div>
-    <div class="form-group">
-      <label for="notes">Additional Notes</label>
-      {{input value=notes id="notes" value=question.additionalNotes}}
-    </div>
-    <button {{action 'editQuestion' question}} class='btn btn-info'>Go!</button>
-  </form>
-{{else}}
-  <button {{action 'showEditQuestionForm'}} class='btn btn-info'>Edit question</button>
-{{/if}}
+<div class="editQuestion">
+  {{#if editingQuestion}}
+    <form>
+      <div class="form-group">
+        <label for="content">Question</label>
+        {{input value=content id="content" value=question.content}}
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        {{input value=author id="author" value=question.author}}
+      </div>
+      <div class="form-group">
+        <label for="notes">Additional Notes</label>
+        {{input value=notes id="notes" value=question.additionalNotes}}
+      </div>
+      <button {{action 'editQuestion' question}} class='btn btn-info'>Go!</button>
+    </form>
+  {{else}}
+    <button {{action 'showEditQuestionForm'}} class='btn btn-info'>Edit question</button>
+  {{/if}}
+</div>

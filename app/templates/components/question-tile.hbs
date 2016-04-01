@@ -1,17 +1,18 @@
 <div class="questionContent">
   <h2>{{question.content}}</h2>
-  <h4>Asked by {{question.author}}</h4>
+  <h4 class="questionAuthor">Asked by {{question.author}}</h4>
   <p>{{question.additionalNotes}}</p>
-  {{new-answer question=question answerQuestion='answerQuestion'}}
-
-  {{#each question.answers as |answer|}}
-    {{answer-tile answer=answer}}
-  {{/each}}
-
-  {{edit-question question=question editQuestion='editQuestion'}}
-  <button {{action "destroyQuestion" question}} class='btn btn-danger'>Delete question</button>
+  <div class="questionVotes">
+    <span {{action 'upvote' question}} class="glyphicon glyphicon-thumbs-up"></span><span class="votes">      {{question.upvotes}}</span>
+    <span {{action 'downvote' question}} class="glyphicon glyphicon-thumbs-down"></span><span class="votes"> {{question.downvotes}}</span>
+  </div>
 </div>
-<div class="questionVotes">
-  <span {{action 'upvote' question}} class="glyphicon glyphicon-thumbs-up"></span><span class="votes">      {{question.upvotes}}</span>
-  <span {{action 'downvote' question}} class="glyphicon glyphicon-thumbs-down"></span><span class="votes"> {{question.downvotes}}</span>
-</div>
+<hr>
+{{new-answer question=question answerQuestion='answerQuestion'}}
+
+{{#each question.answers as |answer|}}
+  {{answer-tile answer=answer}}
+{{/each}}
+
+{{edit-question question=question editQuestion='editQuestion'}}
+<button {{action "destroyQuestion" question}} class='btn btn-danger'>Delete question</button>
