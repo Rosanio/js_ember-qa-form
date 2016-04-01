@@ -26,7 +26,12 @@ export default Ember.Route.extend({
     },
     destroyQuestion(question) {
       if(confirm("Are you sure?")) {
-        question.destroyRecord();
+        var answerDeletions = question.get('answers').map(function(answer) {
+          return answer.destroyRecord();
+        });
+        Ember.RSVP.all(answerDeletions).then(function() {
+          return question.destroyRecord();
+        });
         this.transitionTo('index');
       }
     }

@@ -1,10 +1,1 @@
-{{question-tile question=model}}
-
-{{new-answer question=model answerQuestion='answerQuestion'}}
-
-{{#each model.answers as |answer|}}
-  {{answer-tile answer=answer}}
-{{/each}}
-
-{{edit-question question=model editQuestion='editQuestion'}}
-<button {{action "destroyQuestion" model}} class='btn btn-danger'>Delete question</button>
+{{question-tile question=model answerQuestion='answerQuestion' editQuestion='editQuestion' destroyQuestion='destroyQuestion'}}

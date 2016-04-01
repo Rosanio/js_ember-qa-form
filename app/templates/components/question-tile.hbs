@@ -1,5 +1,17 @@
-<h2>{{question.content}}</h2>
+<div class="questionContent">
+  <h2>{{question.content}}</h2>
+  <h4>Asked by {{question.author}}</h4>
+  <p>{{question.additionalNotes}}</p>
+  {{new-answer question=question answerQuestion='answerQuestion'}}
 
-<h4>Asked by {{question.author}}</h4>
+  {{#each question.answers as |answer|}}
+    {{answer-tile answer=answer}}
+  {{/each}}
 
-<p>{{question.additionalNotes}}</p>
+  {{edit-question question=question editQuestion='editQuestion'}}
+  <button {{action "destroyQuestion" question}} class='btn btn-danger'>Delete question</button>
+</div>
+<div class="questionVotes">
+  <span {{action 'upvote'}} class="glyphicon glyphicon-thumbs-up"></span><span class="votes">      {{question.upvotes}}</span>
+  <span {{action 'downvote'}} class="glyphicon glyphicon-thumbs-down"></span><span class="votes"> {{question.downvotes}}</span>
+</div>

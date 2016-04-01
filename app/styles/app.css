@@ -5,3 +5,7 @@
 .navbar-toggle{
   text-align: center;
 }
+
+.questionContent {
+  float: left;
+}
