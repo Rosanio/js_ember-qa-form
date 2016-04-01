@@ -1,1 +1,15 @@
-{{yield}}
+{{#if answeringQuestion}}
+  <form>
+    <div class="form-group">
+      <label for="content">Answer:</label>
+      {{input value=content id="content"}}
+    </div>
+    <div class="form-group">
+      <label for="author">Author:</label>
+      {{input value=author id="author"}}
+    </div>
+    <button {{action 'answerQuestion'}} class='btn btn-primary'>Go!</button>
+  </form>
+{{else}}
+  <button {{action 'showAnswerForm'}} class="btn btn-primary">Answer Question</button>
+{{/if}}

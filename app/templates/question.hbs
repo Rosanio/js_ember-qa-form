@@ -1,3 +1,7 @@
 {{question-tile question=model}}
 
-{{new-answer}}
+{{new-answer question=model answerQuestion='answerQuestion'}}
+
+{{#each model.answers as |answer|}}
+  {{answer-tile}}
+{{/each}}
