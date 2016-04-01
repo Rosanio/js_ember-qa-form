@@ -7,13 +7,17 @@ export default Ember.Component.extend({
       this.set('answeringQuestion', true);
     },
     answerQuestion() {
-      var params = {
-        content: this.get('content'),
-        question: this.get('question'),
-        author: this.get('author')
-      };
-      this.set('answeringQuestion', false);
-      this.sendAction('answerQuestion', params);
+      if(this.get('content')!==undefined && this.get('author')!==undefined) {
+        if(this.get('content').length>0 && this.get('author').length > 0) {
+          var params = {
+            content: this.get('content'),
+            question: this.get('question'),
+            author: this.get('author')
+          };
+          this.set('answeringQuestion', false);
+          this.sendAction('answerQuestion', params);
+        }
+      }
     }
   }
 });
