@@ -9,7 +9,7 @@
     <h3>Answer Questions</h3>
     {{#each model as |question|}}
       <div>
-        {{question.content}}
+        {{#link-to 'question' question.id}}{{question.content}}{{/link-to}}
       </div>
     {{/each}}
   </div>
