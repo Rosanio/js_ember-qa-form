@@ -1,7 +1,0 @@
-{{#if loggingIn}}
-  {{#each users as |user|}}
-    {{#link-to 'user' user.id}}{{user.name}}{{/link-to}}
-  {{/each}}
-{{else}}
-  <button {{action 'showLogInForm'}} class="btn btn-primary">Log In</button>
-{{/if}}

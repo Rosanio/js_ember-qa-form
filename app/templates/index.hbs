@@ -1,7 +1,16 @@
 <h1>?</h1>
 
-{{log-in users=model}}
-
-<p>Or</p>
-
-{{sign-up signUpUser='signUpUser'}}
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Ask a Question</h3>
+    {{new-question askQuestion='askQuestion'}}
+  </div>
+  <div class="col-xs-6">
+    <h3>Answer Questions</h3>
+    {{#each model as |question|}}
+      <div>
+        {{question.content}}
+      </div>
+    {{/each}}
+  </div>
+</div>

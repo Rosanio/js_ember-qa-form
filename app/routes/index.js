@@ -2,13 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('user');
+    return this.store.findAll('question');
   },
   actions: {
-    signUpUser(params) {
-      console.log('it works');
-      var newUser = this.store.createRecord('user', params);
-      newUser.save();
+    askQuestion(params) {
+      var newQuestion = this.store.createRecord('question', params);
+      newQuestion.save();
       this.refresh();
     }
   }
